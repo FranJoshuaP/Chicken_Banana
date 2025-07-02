@@ -1,101 +1,47 @@
-
-.app {
-  font-family: sans-serif;
+.container {
   text-align: center;
+  padding: 20px;
 }
 
-.app {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  color: #000000;
-  font-size: 13px;
-  line-height: 1;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 120px); 
+  grid-gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-button {
-  font-size: 14px;
-  color: black;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 40px;
-  line-height: 1;
-  padding: 6px 20px;
-  text-transform: uppercase;
-  text-decoration: none;
-  margin: 20px auto;
-  outline: none;
-  transition: 0.3s ease;
+.tile {
+  width: 100px;
+  height: 100px;
+  background: #eee;
   display: flex;
   justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  transition: 0.3s;
 }
 
-button:hover {
-  background-color: black;
-  color: white;
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-input {
-  width: 246px;
-  font-size: 16px;
-  line-height: 20px;
-  color: black;
-  padding: 10px;
-  border: 1px solid black;
+.choice-buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
   cursor: pointer;
 }
 
-
-input:focus {
-  border: 1px solid black;
-  outline: none;
-}
-
-ul,
-ol,
-dd {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-main {
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-h1 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.item {
-  width: 75px;
-  min-width: 75px;
-  height: 75px;
-  min-height: 75px;
-  background-color: aquamarine;
-  margin: 10px;
-}
-
-.item.selected {
-  background-color: red;
-}
-
-input {
-  margin: 20px auto;
-}
-
-label {
-  margin-right: 15px;
+.result {
+  margin-top: 20px;
+  font-size: 24px;
+  color: green;
 }
