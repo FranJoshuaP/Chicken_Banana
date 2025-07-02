@@ -5,7 +5,7 @@ const CHICKEN_IMG = 'https://thumbs.dreamstime.com/z/full-body-brown-chicken-hen
 const BANANA_IMG = 'https://thumbs.dreamstime.com/b/bunch-bananas-6175887.jpg?w=768';
 const NUM_TILES = 36;
 
-function shuffleTiles() {
+function randomizedTiles() {
   const allTiles = [];
   for (let i = 0; i < NUM_TILES / 2; i++) {
     allTiles.push('chicken');
@@ -21,7 +21,7 @@ function shuffleTiles() {
 }
 
 function ChickenBananaGame() {
-  const [tiles, setTiles] = useState(shuffleTiles());
+  const [tiles, setTiles] = useState(randomizedTiles());
   const [revealed, setRevealed] = useState(Array(NUM_TILES).fill(false));
   const [playerChoice, setPlayerChoice] = useState(null);
   const [mistake, setMistake] = useState(false);
@@ -58,13 +58,7 @@ function ChickenBananaGame() {
     }
   };
 
-  const restartGame = () => {
-    setTiles(shuffleTiles());
-    setRevealed(Array(NUM_TILES).fill(false));
-    setPlayerChoice(null);
-    setMistake(false);
-    setWinner(null);
-  };
+  
 
   const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -103,7 +97,7 @@ function ChickenBananaGame() {
         <div className="result">
            You lose
           <br />
-          <button onClick={restartGame}>Play Again</button>
+          
         </div>
       )}
     </div>
