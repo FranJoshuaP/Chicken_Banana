@@ -41,6 +41,9 @@ function ChickenBananaGame() {
     if (!playerChoice) {
       setPlayerChoice(tiles[index]);
     } else if (tiles[index] !== playerChoice) {
+      for (let i = 0; i < NUM_TILES; i++) {
+        newRevealed[i] = true;
+      }
       setMistake(true);
       setWinner(playerChoice === 'chicken' ? 'Banana Player' : 'Chicken Player');
     }
@@ -57,8 +60,6 @@ function ChickenBananaGame() {
       setWinner(`${capitalize(playerChoice)} Player`);
     }
   };
-
-  
 
   const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -83,6 +84,11 @@ function ChickenBananaGame() {
             className="tile"
             onClick={() => handleTileClick(index)}
           >
+            {!revealed[index] && (
+              <div className="tile-number">
+                {index + 1}
+              </div>
+            )}
             {revealed[index] ? (
               <img
                 src={type === 'chicken' ? CHICKEN_IMG : BANANA_IMG}
@@ -95,9 +101,8 @@ function ChickenBananaGame() {
 
       {winner && (
         <div className="result">
-           You lose
+          You lose
           <br />
-          
         </div>
       )}
     </div>
